@@ -1,0 +1,26 @@
+﻿@model MovieStore.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    <p>
+        <label>Tên đăng nhập</label><br>
+        @Html.EditorFor(m => m.Username)
+        @Html.ValidationMessageFor(m => m.Username, "")
+        @Html.ValidationMessage("loginError")
+    </p>
+    <p>
+        <label>Mật khẩu</label><br>
+        @*@Html.EditorFor(m => m.Password)*@
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password, "")
+        @Html.ValidationMessage("loginError")
+    </p>
+    <p>
+        <button type="submit">Sign in</button>
+    </p>
+    <a href="~/User/Register">Register</a>
+}

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Online Movie Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/css/style.css" rel="stylesheet" type="text/css" />
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+</head>
+<body>
+    <div id="wrapper">
+        <div id="inner">
+            <div id="header">
+                <h1><img src="~/images/logo.gif" width="519" height="63" alt="Online Movie Store" /></h1>
+                <div id="nav">
+                    <a href="~/Home/Index">HOME</a> |
+                    <a href="~/GioHang/GioHang">CART</a> @Html.Action("GioHangPartial", "GioHang") |
+
+                    @if (Session["User"] != null)
+                    {
+                        <a href="">Hello @Session["User"] |</a>
+                        <a href="~/User/Logout">LOGOUT</a>
+
+                        @*<div><a href="~/User/Login">YOUR ACCOUNT  </a> </div>
+                            <ul>
+                                <li><span> </span>  Welcome @Session["User"]</li>
+                                <li><a href="~/User/Logout"><span> </span>LOGOUT</a></li>
+                            </ul>*@
+                    }
+                    else
+                    {
+                        <a href="~/User/Login">LOGIN</a>
+                    }
+                </div>
+                <!-- end nav -->
+                <a href="http://all-free-download.com/free-website-templates/"><img src="~/images/header_1.jpg" width="744" height="145" alt="Harry Potter cd" /></a> <a href="http://all-free-download.com/free-website-templates/"><img src="~/images/header_2.jpg" width="745" height="48" alt="" /></a>
+            </div>
+            <!-- end header -->
+            @Html.Action("dsDanhMuc", "phim")
+            @*<dl id="browse">
+                    <dt>Full Category Lists</dt>
+                    <dd class="first"><a href="http://all-free-download.com/free-website-templates/">Action &amp; Adventure</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Anime &amp; Manga</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Art House &amp; International</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Classics</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Comedy</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Cult Movies</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Drama</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">New &amp; Future Releases</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Horror</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Musicals</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Mystery &amp; Suspense</a></dd>
+                    <dd><a href="http://all-free-download.com/free-website-templates/">Science Fiction &amp; Fantasy</a></dd>
+                    <dd class="last"><a href="http://all-free-download.com/free-website-templates/">Westerns</a></dd>
+                    <dt>Search Your Favourite Movie</dt>
+                    <dd class="searchform">
+                        <form action="http://all-free-download.com/free-website-templates/" method="get">
+                            <div>
+                                <select name="cat">
+                                    <option value="-" selected="selected">CATEGORIES</option>
+                                    <option value="-">------------</option>
+                                </select>
+                            </div>
+                            <div>
+                                <input name="q" type="text" value="DVD TITLE" class="text" />
+                            </div>
+                            <div class="softright">
+                                <input type="image" src="~/images/btn_search.gif" />
+                            </div>
+                        </form>
+                    </dd>
+                </dl>*@
+            <div id="body">
+
+                @RenderBody()
+
+                
+                <!-- end .inner -->
+            </div>
+            
+            <!-- end body -->
+            <div class="clear"></div>
+            <div id="footer">
+                Web design by <a href="http://www.freewebsitetemplates.com">free website templates</a> &nbsp;
+                <div id="footnav"> <a href="http://all-free-download.com/free-website-templates/">Legal</a> | <a href="http://all-free-download.com/free-website-templates/">Home</a> </div>
+                <!-- end footnav -->
+            </div>
+            <!-- end footer -->
+        </div>
+        <!-- end inner -->
+    </div>
+    <!-- end wrapper -->
+    <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+</body>
+</html>

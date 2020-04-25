@@ -1,0 +1,63 @@
+﻿@model MovieStore.Models.UserModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register", "User", FormMethod.Post))
+{
+    @*<form action="/signup" method="post">*@
+
+    <p>
+        <label>Họ và tên</label><br>
+        @*<input type="text" name="ho_ten">*@
+        @Html.EditorFor(m => m.hoten)
+        @Html.ValidationMessageFor(m => m.hoten, "")
+
+    </p>
+    <p>
+        <label>Địa chỉ</label><br>
+        @*<input type="text" name="dia_chi">*@
+        @Html.EditorFor(m => m.diachi)
+        @Html.ValidationMessageFor(m => m.diachi, "")
+    </p>
+    <p>
+        <label>Email</label><br>
+        @*<input type="email" name="email" required>*@
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email, "")
+        @Html.ValidationMessage("EmailError")
+    </p>
+
+    <p>
+        <label>Số điện thoại</label><br>
+        @*<input type="tel" name="phone">*@
+        @Html.EditorFor(m => m.sdt)
+
+    </p>
+    <p>
+        <label>Tên đăng nhập</label><br>
+        @*<input type="text" name="username">*@
+        @Html.EditorFor(m => m.Username)
+        @Html.ValidationMessageFor(m => m.Username, "")
+        @Html.ValidationMessage("UsernameError")
+
+    </p>
+    <p>
+        <label>Mật khẩu</label><br>
+        @*<input type="password" name="password">*@
+        @Html.EditorFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password, "")
+    </p>
+    <p>
+        <label>Xác nhận mật khẩu</label><br>
+        @*<input type="password" name="password1">*@
+        @Html.EditorFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword, "")
+    </p>
+
+    <p>
+        <button type="submit">Sign up</button>
+        <button type="reset">Reset form</button>
+    </p>
+}

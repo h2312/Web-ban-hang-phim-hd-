@@ -1,0 +1,51 @@
+﻿@model List<MovieStore.Models.GioHang>
+@{
+    ViewBag.Title = "GioHang";
+}
+
+<h2>Gio Hang</h2>
+<table id="divGioHang">
+    <tr>
+        <td>Ma Phim</td>
+        <td>Ten Phim</td>
+        <td>Don gia</td>
+        <td>So Luong</td>
+        <td>Thanh Tien</td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaPhim</td>
+            <td>@item.TenPhim</td>
+            <td>@item.DonGia</td>
+            <td>@item.SoLuong</td>
+            <td>@item.ThanhTien</td>
+
+        </tr>
+    }
+    <tr>
+        <td colspan="5" style="text-align:right">@Html.ActionLink("Sửa giỏ hàng", "SuaGioHang")</td>
+    </tr>
+    <tr>
+        <td colspan="5" style="text-align:right">
+            @using (Html.BeginForm("DatHang", "GioHang"))
+            {
+                <input type="submit" value="Đặt Hàng">
+            }
+        </td >
+    </tr>
+
+</table>
+
+<style>
+    #divGioHang {
+        border: 1px solid #EEEEEE;
+        margin-left: 10%;
+    }
+
+        #divGioHang td {
+            padding: 10px;
+            border: 1px solid #EEEEEE;
+        }
+</style>

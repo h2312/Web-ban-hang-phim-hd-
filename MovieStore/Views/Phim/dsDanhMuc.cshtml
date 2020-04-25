@@ -1,0 +1,40 @@
+﻿@model List<MovieStore.Models.danhmucphim>
+
+<dl id="browse">
+    <dt>Full Category Lists</dt>
+    
+    @for (int i = 0; i < Model.Count(); i++)
+    {
+        if (i == 0)
+        {
+            <dd class="first"><a href="@Url.Action("dsPhim", "phim", new { dmID = Model[i].madm, dmTen = Model[i].tendm })">@Model[i].tendm</a></dd>
+        }
+        else if (i == Model.Count - 1)
+        {
+            <dd class="last"><a href="@Url.Action("dsPhim", "phim", new { dmID = Model[i].madm, dmTen = Model[i].tendm })">@Model[i].tendm</a></dd>
+        }
+        else 
+        {
+            <dd><a href="@Url.Action("dsPhim", "phim", new { dmID = Model[i].madm, dmTen = Model[i].tendm })">@Model[i].tendm</a></dd>
+
+        }
+    }
+
+    <dt>Search Your Favourite Movie</dt>
+    <dd class="searchform">
+        <form action="http://all-free-download.com/free-website-templates/" method="get">
+            <div>
+                <select name="cat">
+                    <option value="-" selected="selected">CATEGORIES</option>
+                    <option value="-">------------</option>
+                </select>
+            </div>
+            <div>
+                <input name="q" type="text" value="DVD TITLE" class="text" />
+            </div>
+            <div class="softright">
+                <input type="image" src="~/images/btn_search.gif" />
+            </div>
+        </form>
+    </dd>
+</dl>

@@ -1,0 +1,31 @@
+﻿@model MovieStore.Models.phim
+@{
+    ViewBag.Title = "Chitiet";
+}
+
+@*<h2>@Model.tenphim</h2>
+    <p>@Model.thoiluongphim</p>
+    <p>@Model.gia</p>
+    <p>@Model.maphim</p>*@
+<div>
+    <h3>@Model.tenphim</h3>
+    <img src="@Model.hinh" width="193" height="195" alt="photo" />
+    <p><b>Price:</b> <b>$@Model.gia</b></p>
+    <p><b>Availability:</b> @Model.availability</p>
+    <p><b>Time:</b> @Model.thoiluongphim minutes</p>
+    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @MaPhim = Model.idphim, @strURL = Request.Url.ToString() }))
+    {
+        <input type="submit" value="Add to cart">
+    }
+    
+
+
+    <div class="clear"></div>
+</div>
+
+
+
+
+
+
+
